@@ -13,6 +13,18 @@ public class Employe {
     private LocalDate dateEmbauche;
     private Double salaire = 0.0;
 
+    public Employe() {
+        //default constructor
+    }
+
+    public Employe(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire) {
+        setNom(nom);
+        setPrenom(prenom);
+        setMatricule(matricule);
+        setDateEmbauche(dateEmbauche);
+        setSalaire(salaire);
+    }
+
     //nom
     public String getNom() {
         return nom;
