@@ -59,9 +59,9 @@ public class Employe {
     }
 
     public void setDateEmbauche(LocalDate dateEmbauche) throws RuntimeException {
-        //if (dateEmbauche.isAfter(LocalDate.now())) {
-         //   throw new RuntimeException("La date d'embauche ne peut être postérieure à la date courante");
-        //}
+        if (dateEmbauche.isAfter(LocalDate.now())) {
+            throw new RuntimeException("La date d'embauche ne peut être postérieure à la date courante");
+        }
         this.dateEmbauche = dateEmbauche;
     }
 
