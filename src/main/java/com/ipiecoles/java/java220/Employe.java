@@ -7,7 +7,7 @@ import org.joda.time.LocalDate;
  * Created by pjvilloud on 21/09/17.
  */
 
-public class Employe {
+public class Employe extends Entreprise {
     private String nom = "";
     private String prenom = "";
     private String matricule = "";
@@ -74,7 +74,7 @@ public class Employe {
         this.salaire = salaire;
     }
 
-    //nombre annees anciennete
+    //nombre d'annees d'anciennete
     final public Integer getNombreAnneeAnciennete() throws RuntimeException {
         Integer nombreAnneeAnciennete = LocalDate.now().getYear() - getDateEmbauche().getYear();
 
@@ -82,5 +82,9 @@ public class Employe {
             throw new RuntimeException("L'année d'ancienneté ne peut pas être négative");
         }
         return nombreAnneeAnciennete;
+    }
+
+    public final Integer getNbConges() {
+        return Entreprise.NB_CONGES_BASE;
     }
 }
