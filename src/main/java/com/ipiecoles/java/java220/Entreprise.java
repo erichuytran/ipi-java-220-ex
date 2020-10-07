@@ -10,8 +10,8 @@ public class Entreprise {
     public static final Double PRIME_ANCIENNETE = 100.0;
 
     public static Double primeAnnuelleBase() {
-        Double prime = Double.parseDouble(LocalDate.now().year().getAsString()) / 2;
-
-        return prime;
+        return LocalDate.now().getYear() / 2.0;
     }
+
+
 }
