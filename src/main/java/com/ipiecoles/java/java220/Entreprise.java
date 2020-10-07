@@ -8,4 +8,10 @@ public class Entreprise {
     public static final Double INDICE_MANAGER = 1.3;
     public static final Double PRIME_MANAGER_PAR_TECHNICIEN = 250.0;
     public static final Double PRIME_ANCIENNETE = 100.0;
+
+    public static Double primeAnnuelleBase() {
+        Double prime = Double.parseDouble(LocalDate.now().year().getAsString()) / 2;
+
+        return prime;
+    }
 }
