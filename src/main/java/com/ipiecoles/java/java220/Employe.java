@@ -1,5 +1,6 @@
 package com.ipiecoles.java.java220;
 
+
 import org.joda.time.LocalDate;
 
 /**
@@ -57,7 +58,10 @@ public class Employe {
         return dateEmbauche;
     }
 
-    public void setDateEmbauche(LocalDate dateEmbauche) {
+    public void setDateEmbauche(LocalDate dateEmbauche) throws RuntimeException {
+        //if (dateEmbauche.isAfter(LocalDate.now())) {
+         //   throw new RuntimeException("La date d'embauche ne peut être postérieure à la date courante");
+        //}
         this.dateEmbauche = dateEmbauche;
     }
 
@@ -68,5 +72,15 @@ public class Employe {
 
     public void setSalaire(Double salaire) {
         this.salaire = salaire;
+    }
+
+    //nombre annees anciennete
+    final public Integer getNombreAnneeAnciennete() throws RuntimeException {
+        Integer nombreAnneeAnciennete = LocalDate.now().getYear() - getDateEmbauche().getYear();
+
+        if (nombreAnneeAnciennete < 0) {
+            throw new RuntimeException("L'année d'ancienneté ne peut pas être négative");
+        }
+        return nombreAnneeAnciennete;
     }
 }
