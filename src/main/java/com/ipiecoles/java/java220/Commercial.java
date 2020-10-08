@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Commercial extends Employe {
     private Double caAnnuel = 0.0;
+    private Integer performance = 0;
 
     public Commercial() {
         super();
@@ -16,12 +17,26 @@ public class Commercial extends Employe {
         this.caAnnuel = caAnnuel;
     }
 
+    public Commercial(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, Double caAnnuel, Integer performance) {
+        super(nom, prenom, matricule, dateEmbauche, salaire);
+        this.caAnnuel = caAnnuel;
+        this.performance = performance;
+    }
+
     public Double getCaAnnuel() {
         return caAnnuel;
     }
 
     public void setCaAnnuel(Double caAnnuel) {
         this.caAnnuel = caAnnuel;
+    }
+
+    public Boolean performanceEgale(Integer performanceRef) {
+        if (performance.equals(performanceRef)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
