@@ -33,4 +33,13 @@ public class Commercial extends Employe {
         }
         return primeAnnuelle;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Commercial that = (Commercial) o;
+        return Objects.equals(caAnnuel, that.caAnnuel);
+    }
 }
