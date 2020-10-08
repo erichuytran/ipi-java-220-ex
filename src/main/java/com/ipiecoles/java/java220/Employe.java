@@ -90,7 +90,9 @@ public class Employe {
         return Entreprise.NB_CONGES_BASE;
     }
 
-
+    public void augmenterSalaire(Double augmentationPourcentage) {
+        setSalaire(getSalaire() * augmentationPourcentage + getSalaire());
+    }
 
     public String toString() {
         return "Employe{" +
@@ -101,6 +103,8 @@ public class Employe {
                 ", salaire=" + salaire +
                 '}';
     }
+
+    
 
     @Override
     public boolean equals(Object o) {
