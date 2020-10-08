@@ -76,6 +76,11 @@ public class Employe {
         this.salaire = salaire;
     }
 
+    //prime annuelle
+    public Double getPrimeAnnuelle() {
+        return Entreprise.primeAnnuelleBase();
+    }
+
     //nombre d'annees d'anciennete
     final public Integer getNombreAnneeAnciennete() throws Exception {
         Integer nombreAnneeAnciennete = LocalDate.now().getYear() - getDateEmbauche().getYear();
@@ -103,8 +108,6 @@ public class Employe {
                 ", salaire=" + salaire +
                 '}';
     }
-
-    
 
     @Override
     public boolean equals(Object o) {
