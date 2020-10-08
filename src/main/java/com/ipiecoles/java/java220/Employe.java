@@ -82,16 +82,16 @@ public class Employe {
     }
 
     //nombre d'annees d'anciennete
-    final public Integer getNombreAnneeAnciennete() throws Exception {
+    final public Integer getNombreAnneeAnciennete() throws RuntimeException {
         Integer nombreAnneeAnciennete = LocalDate.now().getYear() - getDateEmbauche().getYear();
 
         if (nombreAnneeAnciennete < 0) {
-            throw new Exception("L'année d'ancienneté ne peut pas être négative");
+            throw new RuntimeException("L'année d'ancienneté ne peut pas être négative");
         }
         return nombreAnneeAnciennete;
     }
 
-    public final Integer getNbConges() {
+    public Integer getNbConges() {
         return Entreprise.NB_CONGES_BASE;
     }
 
