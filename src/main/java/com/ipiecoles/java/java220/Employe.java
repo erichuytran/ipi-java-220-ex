@@ -7,7 +7,7 @@ import org.joda.time.LocalDate;
  * Created by pjvilloud on 21/09/17.
  */
 
-public class Employe extends Entreprise {
+public class Employe {
     private String nom = "";
     private String prenom = "";
     private String matricule = "";
@@ -59,7 +59,7 @@ public class Employe extends Entreprise {
     }
 
     public void setDateEmbauche(LocalDate dateEmbauche) throws RuntimeException {
-        if (dateEmbauche.isAfter(LocalDate.now())) {
+        if (dateEmbauche != null && dateEmbauche.isAfter(LocalDate.now())) {
             throw new RuntimeException("La date d'embauche ne peut être postérieure à la date courante");
         }
         this.dateEmbauche = dateEmbauche;
@@ -75,11 +75,11 @@ public class Employe extends Entreprise {
     }
 
     //nombre d'annees d'anciennete
-    final public Integer getNombreAnneeAnciennete() throws RuntimeException {
+    final public Integer getNombreAnneeAnciennete() throws Exception {
         Integer nombreAnneeAnciennete = LocalDate.now().getYear() - getDateEmbauche().getYear();
 
         if (nombreAnneeAnciennete < 0) {
-            throw new RuntimeException("L'année d'ancienneté ne peut pas être négative");
+            throw new Exception("L'année d'ancienneté ne peut pas être négative");
         }
         return nombreAnneeAnciennete;
     }
