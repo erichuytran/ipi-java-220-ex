@@ -35,4 +35,10 @@ public class Technicien extends Employe {
     public Integer getNbConges() {
         return super.getNbConges() + this.getNombreAnneeAnciennete();
     }
+
+    @Override
+    public Double getPrimeAnnuelle() {
+		Double primeAnnuelleBase = Entreprise.primeAnnuelleBase();
+		return primeAnnuelleBase + primeAnnuelleBase * ((double) grade / 10) + Entreprise.PRIME_ANCIENNETE * this.getNombreAnneeAnciennete();
+	}
 }
