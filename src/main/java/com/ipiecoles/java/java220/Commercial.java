@@ -1,10 +1,19 @@
 package com.ipiecoles.java.java220;
 
+import org.joda.time.LocalDate;
+
+import java.util.Objects;
+
 public class Commercial extends Employe {
     private Double caAnnuel = 0.0;
 
-    Commercial() {
+    public Commercial() {
         super();
+    }
+
+    public Commercial(String nom, String prenom, String matricule, LocalDate dateEmbauche, Double salaire, Double caAnnuel) {
+        super(nom, prenom, matricule, dateEmbauche, salaire);
+        this.caAnnuel = caAnnuel;
     }
 
     public Double getCaAnnuel() {
