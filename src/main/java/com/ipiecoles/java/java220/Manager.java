@@ -15,6 +15,10 @@ public class Manager extends Employe {
         this.equipe = equipe;
     }
 
+    public void ajoutTechnicienEquipe(Technicien technicien) {
+        equipe.add(technicien);
+    }
+
     @Override
     public Double getPrimeAnnuelle() {
         return null;
