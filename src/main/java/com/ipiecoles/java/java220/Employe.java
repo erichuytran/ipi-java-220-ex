@@ -9,7 +9,7 @@ import java.util.Objects;
  * Created by pjvilloud on 21/09/17.
  */
 
-public class Employe {
+public abstract class Employe {
     private String nom = "";
     private String prenom = "";
     private String matricule = "";
@@ -77,9 +77,7 @@ public class Employe {
     }
 
     //prime annuelle
-    public Double getPrimeAnnuelle() {
-        return Entreprise.primeAnnuelleBase();
-    }
+    public abstract Double getPrimeAnnuelle();
 
     //nombre d'annees d'anciennete
     final public Integer getNombreAnneeAnciennete() throws RuntimeException {
