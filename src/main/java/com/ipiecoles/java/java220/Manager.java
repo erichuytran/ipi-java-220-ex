@@ -1,6 +1,5 @@
 package com.ipiecoles.java.java220;
 
-import java.util.Collections;
 import java.util.HashSet;
 
 public class Manager extends Employe {
@@ -17,6 +16,11 @@ public class Manager extends Employe {
 
     public void ajoutTechnicienEquipe(Technicien technicien) {
         equipe.add(technicien);
+    }
+
+    @Override
+    public void setSalaire(Double salaire) {
+        super.setSalaire((salaire * Entreprise.INDICE_MANAGER) + ((0.1 * salaire) * equipe.size()));
     }
 
     @Override
