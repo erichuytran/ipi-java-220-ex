@@ -57,4 +57,12 @@ public class Commercial extends Employe {
         Commercial that = (Commercial) o;
         return Objects.equals(caAnnuel, that.caAnnuel);
     }
+
+    @Override
+    public String toString() {
+        return "Commercial{" +
+                "caAnnuel=" + caAnnuel +
+                ", performance=" + performance +
+                '}';
+    }
 }
