@@ -4,6 +4,7 @@ import org.joda.time.LocalDate;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Manager extends Employe {
 
@@ -30,11 +31,29 @@ public class Manager extends Employe {
         this.equipe.add(technicien);
     }
 
+    public void ajoutTechnicienEquipe(String nom, String prenom, String matricule,
+                                      LocalDate dateEmbauche, Double salaire, Integer grade) {
+        Technicien technicien = new Technicien(nom, prenom, matricule, dateEmbauche, salaire, grade);
+        this.ajoutTechnicienEquipe(technicien);
+    }
 
+    private void augmenterSalaireEquipe(Double augmentation) {
+        for (Technicien technicien : this.equipe) {
+            technicien.augmenterSalaire(augmentation);
+        }
+    }
 
     @Override
     public void setSalaire(Double salaire) {
         super.setSalaire((salaire * Entreprise.INDICE_MANAGER) + ((0.1 * salaire) * equipe.size()));
+    }
+
+    @Override
+    public void augmenterSalaire(Double augmentationPourcentage) {
+        for (Technicien technicien : this.equipe) {
+            technicien.augmenterSalaire(augmentationPourcentage);
+        }
+        super.augmenterSalaire(augmentationPourcentage);
     }
 
     @Override
@@ -47,5 +66,19 @@ public class Manager extends Employe {
         return "Manager{" +
                 "equipe=" + equipe +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Manager manager = (Manager) o;
+        return Objects.equals(equipe, manager.equipe);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), equipe);
     }
 }

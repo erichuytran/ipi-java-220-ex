@@ -94,7 +94,8 @@ public abstract class Employe {
     }
 
     public void augmenterSalaire(Double augmentationPourcentage) {
-        setSalaire(getSalaire() * augmentationPourcentage + getSalaire());
+        this.salaire = this.salaire * (1 + augmentationPourcentage);
+        //setSalaire(getSalaire() * augmentationPourcentage + getSalaire());
     }
 
     public String toString() {
